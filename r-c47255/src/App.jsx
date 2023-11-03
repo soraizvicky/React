@@ -1,29 +1,24 @@
-import './App.css'
+import { useState } from 'react'
+import Home from './components/Home/Home.jsx'
 import NavBar from './components/NavBar/NavBar'
-const Titulo = ()=>{
-    return(
-      <div>
-        <h1>Lara Casa</h1>
-        <h2>Tus Zapatos Favoritos</h2>
-      </div>
-    )
-}
-
-const Formulario = ()=>{
-  return(
-    <form>
-      <>Titulo</>
-      <input type="text" placeholder='Ingresa tu Nombre'/>
-    </form>
-  )
-}
+import ItemListContainer from './components/ItemListContainer/ItemListContainer.jsx'
+import './App.css'
+import './App1.css'
 
 function App() {
+  const [counter, cambiarValorDeCounter] = useState(0)
+  const handleCounter = () => {
+    cambiarValorDeCounter(counter+1)
+  }
   return (
+
     <>
-    <>NavBar </>
-    <>Titulo </>
-    <>Formulario</>
+
+    <NavBar />
+    <ItemListContainer/>
+    
+    <p>{counter}</p>
+    <button> onClik={handleCounter}click +</button>
     </>
   )
 }
